@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="card">
+  <div class="card-body">
+      <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" name='search' placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+  </div>
+</div>
+<hr>
+<body style="background-color: #D0E6E6">
+    <div class="container-fluid">
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+    <div class="carousel-indicators">
+      {% for i in photo %}
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ forloop.counter0 }}" class="{% if forloop.first %}active{% endif %}" aria-label="Slide {{ forloop.counter }}">
+      </button>
+      {% endfor %}
+    </div>
+    <div class="carousel-inner">
+      {% for i in photo %}
+      <div class="carousel-item {% if forloop.first %}active{% endif %}">
+        <img src="/media/{{ i.img }}" class="d-block w-100" alt="..." />
+        <div class="carousel-caption d-none d-md-block" style="color: whitesmoke">
+          <h5><b>{{ i.name }}</b></h5>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+    <br /><br />
+    
+    <div class="alert alert-dark" role="alert">
+        <h2>Available food!</h2>
+      </div>
+    <hr>
+
+    <div class="container-fluid">
+      <div class="row row-cols-2 row-cols-md-2 g-2">
+          {% for e in item_list %}
+          <div class="card" style="width: 18rem;">
+              <img src="/media/{{ e.item_image }}" class="card-img-top img-thumbnail" alt="..." style="max-height: 300px; max-width: 300px;">
+              <div class="card-body">
+                  <h5 class="card-title"><b>{{ e.item_name }}</b></h5>
+                  <a href='{% url 'detail' e.id %}' class="btn btn-primary">Details</a>
+                  <br><br>
+              </div>
+          </div>
+          {% endfor %}
+      </div>
+
+</body>
+{% endblock %}
+
+
+
+    
+    
+   
+    

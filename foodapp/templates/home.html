@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block body %}
+
+<div class="alert alert-dark" role="alert">
+    <h2>Available food!</h2>
+  </div>
+<hr>
+<div class="alert alert-dark" role="alert">
+    <a href='{% url 'add' %}' class="btn btn-primary">Add new Item</a>
+    
+    <div class="alert alert-danger" role="alert">
+        <i>when add new item then image can not be load!</i>
+      </div>
+  </div>
+  
+
+<div class="container-fluid">
+  <div class="row row-cols-2 row-cols-md-2 g-2">
+      {% for e in item %}
+      <div class="card" style="width: 18rem;">
+          <img src="/media/{{ e.item_image }}" class="card-img-top img-thumbnail" alt="..." style="max-height: 300px; max-width: 300px;">
+          <div class="card-body">
+              <h5 class="card-title"><b>Name- </b><i>{{ e.item_name }}</i></h5>
+              <h6 class="card-title"><b>Price- </b>Rs. {{ e.item_price }}.00</h6>
+              <h6 class="card-title"><b>Description- </b>{{ e.item_desc }}</h6>
+              <a href='{% url 'update' e.id %}' class="btn btn-primary">Update_Item</a>
+              <a href='{% url 'delete' e.id %}' class="btn btn-danger">Delete_Item</a>
+              <br><br>
+          </div>
+      </div>
+      {% endfor %}
+  </div>
+
+</body>
+</html>
+{% endblock %}

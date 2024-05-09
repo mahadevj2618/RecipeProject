@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="card" style="width: 400px; padding: 20px; margin: 0 auto; background-color:#CFEDEB">
+<form method="POST">
+    {% csrf_token %}
+    <h1>Are you sure You want to delete {{ item.item_name }}</h1>
+    <button class="btn btn-outline-danger">Confirm</button>
+</form>
+</div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block body %}
+
+
+<div class="card" style="max-width: 1000px;">
+  <div class="row g-0">
+    <div class="col-md-8">
+      <img src="/media/{{ item.item_image }}" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-4">
+      <div class="card-body">
+        <h5 class="card-title"><b>Name- </b><i>{{ item.item_name }}<i></h5>
+        <p class="card-text"><b>Price- </b>Rs. {{item.item_price}}.00</p>
+        <p class="card-text"><b>Description- </b>{{item.item_desc}}</p>
+       
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

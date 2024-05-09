@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block body %}
+<body style="background-color: #D0E6E6">
+<div class="alert alert-danger" role="alert">
+    only admin can change!
+  </div>
+
+  
+{% for i in ab %}
+<div class="card w-75">
+    <div class="card-body" style="background-color: #F8FEBE">
+      <h5 class="card-title" style="background-color: #B1B5AB;">{{ i.title }}</h5>
+      <p class="card-text md-6" style="font-size: 1.2rem;">{{ i.descript }}</p>
+    </div>
+    
+</div>
+<br><br>
+{% endfor %}
+
+</body>
+{% endblock %}

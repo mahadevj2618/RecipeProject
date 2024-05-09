@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Form</title>
+</head>
+<body>
+    <div class="card" style="width: 400px; padding: 20px; margin: 0 auto; background-color:#CFEDEB">
+    <div>
+        <h2>Register</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div>
+                <label for="username">first_name</label>
+                <input type="text" id="first_name" name="first_name" required>
+            </div><br><br>
+            <div>
+                <label for="username">last_name</label>
+                <input type="text" id="last_name" name="last_name" required>
+            </div><br><br>
+            <div>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div><br><br>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div><br><br>
+            <p>Already have account<a href="/login/">Login</a></p><br><br>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

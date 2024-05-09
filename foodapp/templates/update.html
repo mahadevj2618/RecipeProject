@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="card" style="width: 400px; padding: 20px; margin: 0 auto; background-color:#CFEDEB">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="mb-2">
+            <label for="exampleInputEmail1" class="form-label">Name-</label>
+            <input type="text" class="form-control" value="{{ item.item_name }}" id="exampleInputEmail1" name="item_name"><br>
+        </div>
+        <div class="mb-2">
+            <label for="exampleInputPassword1" class="form-label">Price-</label>
+            <input type="text" class="form-control" value="{{ item.item_price }}" id="exampleInputPassword1" name="item_price"><br>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Description-</label>
+            <textarea class="form-control" id="exampleInputPassword1" name="item_desc">{{ item.item_desc }}</textarea><br>
+        </div>
+        <div class="mb-2">
+            <label for="exampleInputPassword1" class="form-label">Photo-</label>
+            <input type="file" class="form-control" id="exampleInputPassword1" name="item_image"><br>
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+    
+</div>
+
+
+{% endblock %}
